@@ -7,14 +7,119 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textViewTodayNight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/nodata"
+        app:layout_constraintEnd_toEndOf="@+id/textViewToday"
+        app:layout_constraintStart_toStartOf="@+id/textViewToday"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTodayDay" />
+
+    <TextView
         android:id="@+id/textview1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/app_header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewToday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/today"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTomorrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/textViewTomorrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/tomorrow"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewToday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewToday"
+        app:layout_constraintTop_toTopOf="@+id/textViewToday" />
+
+    <TextView
+        android:id="@+id/textViewTodayDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/nodata"
+        app:layout_constraintEnd_toEndOf="@+id/textViewToday"
+        app:layout_constraintStart_toStartOf="@+id/textViewToday"
+        app:layout_constraintTop_toBottomOf="@+id/textViewToday" />
+
+    <TextView
+        android:id="@+id/textViewTomorrowDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/nodata"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTomorrow"
+        app:layout_constraintStart_toStartOf="@+id/textViewTomorrow"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTomorrow" />
+
+    <TextView
+        android:id="@+id/textViewTomorrowNight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/nodata"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTomorrow"
+        app:layout_constraintStart_toStartOf="@+id/textViewTomorrow"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTomorrowDay" />
+
+    <TextView
+        android:id="@+id/textViewDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/day"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTodayDay"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTodayDay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewTodayDay" />
+
+    <TextView
+        android:id="@+id/textViewNight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/night"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTodayNight"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTodayNight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewTodayNight" />
 
 </android.support.constraint.ConstraintLayout>
