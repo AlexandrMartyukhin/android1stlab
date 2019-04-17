@@ -22,106 +22,128 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textViewToday"
+        android:id="@+id/textViewTownChooser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/today"
+        android:text="@string/input_town"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTomorrow"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.1" />
 
-    <TextView
-        android:id="@+id/textViewTomorrow"
+    <EditText
+        android:id="@+id/editTextTown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:autofillHints=""
+        android:ems="8"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="@string/def_town"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonOk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTownChooser"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="@string/tomorrow"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewToday"
+        android:onClick="onClickOkButton"
+        android:text="@string/ok"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewToday"
-        app:layout_constraintTop_toTopOf="@+id/textViewToday" />
+        app:layout_constraintStart_toEndOf="@+id/editTextTown"
+        app:layout_constraintTop_toTopOf="@+id/editTextTown" />
 
     <TextView
-        android:id="@+id/textViewDay"
+        android:id="@+id/textViewAdds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/day"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewTodayDay"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTodayDay"
+        android:text="@string/textviewadds"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewTodayDay" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTown"
+        app:layout_constraintVertical_bias="0.100000024" />
 
-    <TextView
-        android:id="@+id/textViewNight"
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/checkBoxPressure"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/night"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewTodayNight"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTodayNight"
+        android:checked="true"
+        android:text="@string/pressure"
+        app:layout_constraintEnd_toStartOf="@+id/checkBoxWindSpeed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewTodayNight" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAdds" />
 
-    <TextView
-        android:id="@+id/textViewTodayDay"
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/checkBoxWindSpeed"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/nodata"
-        app:layout_constraintEnd_toEndOf="@+id/textViewToday"
-        app:layout_constraintStart_toStartOf="@+id/textViewToday"
-        app:layout_constraintTop_toBottomOf="@+id/textViewToday" />
+        android:checked="true"
+        android:text="@string/wind_speed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxPressure"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAdds" />
 
-    <TextView
-        android:id="@+id/textViewTodayNight"
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/checkBoxHumidity"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/nodata"
-        app:layout_constraintEnd_toEndOf="@+id/textViewToday"
-        app:layout_constraintStart_toStartOf="@+id/textViewToday"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTodayDay" />
+        android:text="@string/humidity"
+        app:layout_constraintEnd_toEndOf="@+id/checkBoxPressure"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxPressure"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxPressure" />
 
-    <TextView
-        android:id="@+id/textViewTomorrowDay"
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/checkBoxWindDirection"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/nodata"
-        app:layout_constraintEnd_toEndOf="@+id/textViewTomorrow"
-        app:layout_constraintStart_toStartOf="@+id/textViewTomorrow"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTomorrow" />
+        android:text="@string/wind_direction"
+        app:layout_constraintEnd_toEndOf="@+id/checkBoxWindSpeed"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxWindSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxWindSpeed" />
 
-    <TextView
-        android:id="@+id/textViewTomorrowNight"
+    <Switch
+        android:id="@+id/switchPrecipitation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/nodata"
-        app:layout_constraintEnd_toEndOf="@+id/textViewTomorrow"
-        app:layout_constraintStart_toStartOf="@+id/textViewTomorrow"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTomorrowDay" />
+        android:checked="true"
+        android:text="@string/precipitation"
+        app:layout_constraintEnd_toEndOf="@+id/textViewAdds"
+        app:layout_constraintStart_toStartOf="@+id/textViewAdds"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxHumidity"
+        tools:checked="false" />
+
 
 </android.support.constraint.ConstraintLayout>
