@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MainTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryW</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkW</item>
+        <item name="colorAccent">@color/colorAccentW</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:textSize">18sp</item>>
+        <item name="android:textColor">@color/colorMainText</item>>
+        <item name="android:typeface">sans</item>>
+    </style>
+
+    <style name="MainTheme.FullScreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>
