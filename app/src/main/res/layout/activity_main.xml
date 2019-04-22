@@ -33,8 +33,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/textview1"
+        app:layout_constraintVertical_bias="0.19999999" />
 
     <EditText
         android:id="@+id/editTextTown"
@@ -112,38 +112,52 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="8dp"
         android:text="@string/humidity"
         app:layout_constraintEnd_toEndOf="@+id/checkBoxPressure"
         app:layout_constraintStart_toStartOf="@+id/checkBoxPressure"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxPressure" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAdds" />
 
     <CheckBox
         android:id="@+id/checkBoxWindDirection"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="8dp"
         android:text="@string/wind_direction"
         app:layout_constraintEnd_toEndOf="@+id/checkBoxWindSpeed"
         app:layout_constraintStart_toStartOf="@+id/checkBoxWindSpeed"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxWindSpeed" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAdds" />
 
     <Switch
         android:id="@+id/switchPrecipitation"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="27dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="112dp"
         android:layout_marginEnd="8dp"
         android:checked="true"
         android:text="@string/precipitation"
         app:layout_constraintEnd_toEndOf="@+id/textViewAdds"
         app:layout_constraintStart_toStartOf="@+id/textViewAdds"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxHumidity"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAdds"
         tools:checked="false" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTownChooser"
+        app:layout_constraintEnd_toEndOf="@+id/textview1"
+        app:layout_constraintStart_toStartOf="@+id/textview1"
+        app:layout_constraintTop_toBottomOf="@+id/textview1"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/umbrella64" />
 
 
 </android.support.constraint.ConstraintLayout>
