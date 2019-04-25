@@ -41,11 +41,11 @@ public class FragmentWeather extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        TypedArray temps = getResources().obtainTypedArray(R.array.temperature_array);
+//        TypedArray temps = getResources().obtainTypedArray(R.array.temperature_array);
+//
+//        int temp = temps.getResourceId(getIndex(), -1);
 
-        int temp = temps.getResourceId(getIndex(), -1);
-
-        Log.i(MainActivity.LOGTAG, "TEMP = " + temp);
+//        Log.i(MainActivity.LOGTAG, "TEMP = " + temp);
 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
