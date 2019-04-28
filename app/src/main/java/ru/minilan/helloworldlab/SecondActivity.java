@@ -3,9 +3,7 @@ package ru.minilan.helloworldlab;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
@@ -14,18 +12,18 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.second_activity);
         if (getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE) {
             finish();
             return;
         }
 
         if (savedInstanceState == null) {
-            // Если эта activity запускается первый раз (с каждым новым гербом первый раз)
-            // то перенаправим параметр фрагменту
+            Log.i(MainActivity.LOGTAG, "SECOND - savedState == null");
+            Log.i(MainActivity.LOGTAG, String.valueOf(getIntent().getExtras().getInt("index")));
+
             FragmentWeather details = new FragmentWeather();
             details.setArguments(getIntent().getExtras());
-            // Добавим фрагмент на activity
+
             getSupportFragmentManager().beginTransaction().add(android.R.id.content, details).commit();
         }
 

@@ -2,17 +2,15 @@ package ru.minilan.helloworldlab;
 
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class FragmentWeather extends Fragment {
 
@@ -26,7 +24,12 @@ public class FragmentWeather extends Fragment {
     }
 
     public int getIndex() {
-        int index = getArguments().getInt("index", 1);
+        int index;
+        try {
+            index = getArguments().getInt("index");
+        } catch (NullPointerException e) {
+            index = 0;
+        }
         return index;
     }
 
@@ -38,17 +41,13 @@ public class FragmentWeather extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-//        TypedArray temps = getResources().obtainTypedArray(R.array.temperature_array);
-//
-//        int temp = temps.getResourceId(getIndex(), -1);
-
-//        Log.i(MainActivity.LOGTAG, "TEMP = " + temp);
-
-        // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
+        int[] temps = getResources().getIntArray(R.array.temperature_array);
+        String[] cities = getResources().getStringArray(R.array.Cities);
+
+        int temp = temps[getIndex()];
         TextView textViewHeaderTown = rootView.findViewById(R.id.textviewheadertown);
         TextView textViewTodayDay = rootView.findViewById(R.id.textViewTodayDay);
         TextView textViewTodayNight = rootView.findViewById(R.id.textViewTodayNight);
@@ -56,37 +55,27 @@ public class FragmentWeather extends Fragment {
         TextView textViewTomorrowNight = rootView.findViewById(R.id.textViewTomorrowNight);
 
         String town;
-//        if (((town = getIntent().getExtras().getString(MainActivity.TOWN)) == null) || (town.equals(""))) {
-//            town = getResources().getString(R.string.def_town);
-//            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.show_def_town),
-//                    Toast.LENGTH_LONG);
-//            toast.setGravity(Gravity.CENTER,0,0);
-//            toast.show();
-//        }
-
-        // STAB !!! SET TOWN
-        town = getResources().getString(R.string.def_town);
+        town = cities[getIndex()];
 
 
         String header = getResources().getText(R.string.app_header_in_town_X) + " " + town;
         textViewHeaderTown.setText(header);
 
         //stabs
-        textViewTodayDay.setText("10");
-        textViewTodayNight.setText("5");
-        textViewTomorrowDay.setText("12");
-        textViewTomorrowNight.setText("6");
-
-//        Log.i(MainActivity.LOGTAG, "  Show Pressure - " + String.valueOf(getIntent().getExtras().getBoolean(MainActivity.PRESSURE)));
-//        Log.i(MainActivity.LOGTAG, "  Show Humidity - " + String.valueOf(getIntent().getExtras().getBoolean(MainActivity.HUMIDITY)));
-//        Log.i(MainActivity.LOGTAG, "  Show WindSpeed - " + String.valueOf(getIntent().getExtras().getBoolean(MainActivity.WINDSPEED)));
-//        Log.i(MainActivity.LOGTAG, "  Show WindDirection - " + String.valueOf(getIntent().getExtras().getBoolean(MainActivity.WINDDIR)));
-//        Log.i(MainActivity.LOGTAG, "  Show Precipitation - " + String.valueOf(getIntent().getExtras().getBoolean(MainActivity.PRECIPITATION)));
+        textViewTodayDay.setText(String.valueOf(temp));
+        textViewTodayNight.setText(String.valueOf(temp));
+        textViewTomorrowDay.setText(String.valueOf(temp));
+        textViewTomorrowNight.setText(String.valueOf(temp));
 
         Log.i(MainActivity.LOGTAG, "FragmentWeather onCreateView()...");
         return rootView;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(MainActivity.LOGTAG, "FragmentWeather onSaveInstanceState()...");
+    }
 
     @Override
     public void onAttach(Context context) {
