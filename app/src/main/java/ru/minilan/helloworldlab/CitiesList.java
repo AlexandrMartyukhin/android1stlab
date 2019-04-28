@@ -11,13 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class CitiesList extends ListFragment {
 
     private boolean isExistFragmentWeather;
-    int currentPosition = 0;
+    int currentPosition;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,14 +43,18 @@ public class CitiesList extends ListFragment {
                 android.R.layout.simple_list_item_activated_1);
         setListAdapter(arrayAdapter);
 
-        View detailsFrame = getActivity().findViewById(R.id.weatherfragment);
+
+        View detailsFrame = getActivity().findViewById(R.id.fragment);
         isExistFragmentWeather = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;
         if (savedInstanceState != null) {
-            currentPosition = savedInstanceState.getInt("CurrentCity", 0);
+            currentPosition = savedInstanceState.getInt("city", 0);
+        } else {
+            currentPosition = 0;
         }
+
         if (isExistFragmentWeather) {
             getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-            showWeather();
+            showWeather(currentPosition);
         }
 
         Log.i(MainActivity.LOGTAG, "FragmentCitiesList onActivityCreated()...");
@@ -60,23 +63,22 @@ public class CitiesList extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
+        //Log.i(MainActivity.LOGTAG, "KEY PRESSED");
         currentPosition = position;
-        showWeather();
-
-        String selectedTown = getListView().getItemAtPosition(position).toString();
-        Log.i(MainActivity.LOGTAG, "Selected town - " + selectedTown);
+        showWeather(position);
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("CurrentCity", currentPosition);
+        outState.putInt("city", currentPosition);
         Log.i(MainActivity.LOGTAG, "FragmentCitiesList onSaveInstanceState()...");
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        getListView().setItemChecked(currentPosition, true);
         Log.i(MainActivity.LOGTAG, "FragmentCitiesList onStart()...");
 
     }
@@ -84,6 +86,7 @@ public class CitiesList extends ListFragment {
     @Override
     public void onResume() {
         super.onResume();
+
         Log.i(MainActivity.LOGTAG, "FragmentCitiesList onResume()...");
 
     }
@@ -123,29 +126,28 @@ public class CitiesList extends ListFragment {
 
     }
 
-    private void showWeather() {
+    private void showWeather(int position) {
         if (isExistFragmentWeather) {
-            getListView().setItemChecked(currentPosition, true);
+            getListView().setItemChecked(position, true);
 
-            FragmentWeather detail = (FragmentWeather) getFragmentManager().findFragmentById(R.id.weatherfragment);
+            FragmentWeather detail = (FragmentWeather) getFragmentManager().findFragmentById(R.id.fragment);
 
-            if (detail == null || detail.getIndex() != currentPosition) {
-                detail = FragmentWeather.create(currentPosition);
+            if (detail == null || detail.getIndex() != position) {
 
+                detail = FragmentWeather.create(position);
 // Выполняем транзакцию по замене фрагмента
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.weatherfragment, detail);  // замена фрагмента
+                ft.replace(R.id.fragment, detail);  // замена фрагмента
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 ft.commit();
             }
 
         }
         else {
-// Если нельзя вывести герб рядом, откроем вторую activity
+
             Intent intent = new Intent();
             intent.setClass(getActivity(), SecondActivity.class);
-// и передадим туда параметры
-            intent.putExtra("index", currentPosition);
+            intent.putExtra("index", position);
             startActivity(intent);
         }
     }
