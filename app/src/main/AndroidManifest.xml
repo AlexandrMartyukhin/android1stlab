@@ -19,7 +19,7 @@
         <activity
             android:name=".SecondActivity"
             android:theme="@style/MainTheme.FullScreen">
-        </activity>>
+        </activity>
     </application>
 
 </manifest>

@@ -17,6 +17,23 @@
     <string name="wind_speed">Wind speed</string>
     <string name="humidity">Humidity</string>
     <string name="wind_direction">Wind direction</string>
-    <string name="precipitation">Precititations</string>
+    <string name="precipitation">Precipitations</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="empty">Empty List</string>
+
+    <string-array name="Cities">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Екатеринбург</item>
+        <item>Новосибирск</item>
+        <item>Самара</item>
+        <item>Тула</item>
+        <item>Ереван</item>
+        <item>Ростов</item>
+        <item>Тюмень</item>
+        <item>Абакан</item>
+    </string-array>
+
 
 </resources>

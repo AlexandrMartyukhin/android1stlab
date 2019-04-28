@@ -18,5 +18,7 @@
     <string name="wind_direction">Направление ветра</string>
     <string name="precipitation">Отображение осадков</string>
     <string name="show_def_town">Город не выбран. Отображена погода для Москвы</string>
+    <string name="empty">Список пуст</string>
+
 
 </resources>
