@@ -18,8 +18,10 @@
     <string name="humidity">Humidity</string>
     <string name="wind_direction">Wind direction</string>
     <string name="precipitation">Precipitations</string>
+    <string name="overcast">Overcast</string>
 
     <string name="empty">Empty List</string>
+
 
     <string-array name="Cities">
         <item>Москва</item>

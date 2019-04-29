@@ -44,21 +44,29 @@ public class FragmentWeather extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
+
+        //get arrays
         int[] temps = getResources().getIntArray(R.array.temperature_array);
+        int[] presssures = getResources().getIntArray(R.array.pressure_array);
+        int[] hums = getResources().getIntArray(R.array.humidity_array);
         String[] cities = getResources().getStringArray(R.array.Cities);
 
         int temp = temps[getIndex()];
+        int pressure = presssures[getIndex()];
+        int hum = hums[getIndex()];
+
         TextView textViewHeaderTown = rootView.findViewById(R.id.textviewheadertown);
         TextView textViewTodayDay = rootView.findViewById(R.id.textViewTodayDay);
         TextView textViewTodayNight = rootView.findViewById(R.id.textViewTodayNight);
         TextView textViewTomorrowDay = rootView.findViewById(R.id.textViewTomorrowDay);
         TextView textViewTomorrowNight = rootView.findViewById(R.id.textViewTomorrowNight);
 
-        String town;
-        town = cities[getIndex()];
+        TextView textViewTodayPressure = rootView.findViewById(R.id.textViewTodayPressure);
+        TextView textViewTomorrowPressure = rootView.findViewById(R.id.textViewTomorrowPressure);
+        TextView textViewTodayHumidity = rootView.findViewById(R.id.textViewTodayHumidity);
+        TextView textViewTomorrowHumidity = rootView.findViewById(R.id.textViewTomorrowHumidity);
 
-
-        String header = getResources().getText(R.string.app_header_in_town_X) + " " + town;
+        String header = getResources().getText(R.string.app_header_in_town_X) + " " + cities[getIndex()];
         textViewHeaderTown.setText(header);
 
         //stabs
@@ -66,6 +74,10 @@ public class FragmentWeather extends Fragment {
         textViewTodayNight.setText(String.valueOf(temp));
         textViewTomorrowDay.setText(String.valueOf(temp));
         textViewTomorrowNight.setText(String.valueOf(temp));
+        textViewTodayPressure.setText(String.valueOf(pressure));
+        textViewTomorrowPressure.setText(String.valueOf(pressure));
+        textViewTodayHumidity.setText(String.valueOf(hum));
+        textViewTomorrowHumidity.setText(String.valueOf(hum));
 
         Log.i(MainActivity.LOGTAG, "FragmentWeather onCreateView()...");
         return rootView;
@@ -135,6 +147,10 @@ public class FragmentWeather extends Fragment {
     public void onDetach() {
         super.onDetach();
         Log.i(MainActivity.LOGTAG, "FragmentWeather onDetach()...");
+
+    }
+
+    private void getDataDetails(int index) {
 
     }
 }

@@ -8,17 +8,18 @@
     <string name="night">Ночью</string>
     <string name="today">Сегодня</string>
     <string name="tomorrow">Завтра</string>
-    <string name="nodata">нет данных</string>
+    <string name="nodata">н/д</string>
     <string name="def_town">Москва</string>
     <string name="ok">Ok</string>
     <string name="textviewadds">Выберите дополнительные данные</string>
-    <string name="pressure">Атм. давление</string>
+    <string name="pressure">Давление</string>
     <string name="wind_speed">Скорость ветра</string>
     <string name="humidity">Влажность</string>
     <string name="wind_direction">Направление ветра</string>
     <string name="precipitation">Отображение осадков</string>
     <string name="show_def_town">Город не выбран. Отображена погода для Москвы</string>
     <string name="empty">Список пуст</string>
+    <string name="overcast">Облачность</string>
 
 
 </resources>
