@@ -14,4 +14,30 @@
         <item>20</item>
     </integer-array>
 
+    <integer-array name="pressure_array">
+        <item>759</item>
+        <item>760</item>
+        <item>761</item>
+        <item>762</item>
+        <item>764</item><!--Самара -->
+        <item>750</item>
+        <item>758</item>
+        <item>749</item>
+        <item>756</item>
+        <item>755</item>
+    </integer-array>
+
+    <integer-array name="humidity_array">
+        <item>70</item>
+        <item>77</item>
+        <item>70</item>
+        <item>50</item>
+        <item>90</item><!--Самара -->
+        <item>88</item>
+        <item>79</item>
+        <item>90</item>
+        <item>97</item>
+        <item>79</item>
+    </integer-array>
+
 </resources>
