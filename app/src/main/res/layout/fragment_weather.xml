@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,6 +14,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/app_header_in_town"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -29,20 +31,20 @@
         android:layout_marginBottom="8dp"
         android:text="@string/today"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTomorrow"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/textviewheadertown"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewTomorrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/tomorrow"
         app:layout_constraintBottom_toBottomOf="@+id/textViewToday"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewToday"
         app:layout_constraintTop_toTopOf="@+id/textViewToday" />
 
@@ -50,29 +52,55 @@
         android:id="@+id/textViewDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:text="@string/day"
         app:layout_constraintBottom_toBottomOf="@+id/textViewTodayDay"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTodayDay"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewToday"
         app:layout_constraintTop_toTopOf="@+id/textViewTodayDay" />
 
     <TextView
         android:id="@+id/textViewNight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/night"
         app:layout_constraintBottom_toBottomOf="@+id/textViewTodayNight"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTodayNight"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDay"
         app:layout_constraintTop_toTopOf="@+id/textViewTodayNight" />
+
+    <TextView
+        android:id="@+id/textViewPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/pressure"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTodayPressure"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNight"
+        app:layout_constraintTop_toTopOf="@+id/textViewTodayPressure" />
+
+    <TextView
+        android:id="@+id/textViewHumidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/humidity"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTodayHumidity"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPressure"
+        app:layout_constraintTop_toTopOf="@+id/textViewTodayHumidity" />
+
+    <TextView
+        android:id="@+id/textViewOvercast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/overcast"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewOvercastToday"
+        app:layout_constraintEnd_toEndOf="@+id/textViewHumidity"
+        app:layout_constraintTop_toTopOf="@+id/imageViewOvercastToday" />
 
     <TextView
         android:id="@+id/textViewTodayDay"
@@ -99,6 +127,31 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTodayDay" />
 
     <TextView
+        android:id="@+id/textViewTodayHumidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/nodata"
+        app:layout_constraintEnd_toEndOf="@+id/textViewToday"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="@+id/textViewToday"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTodayPressure" />
+
+    <TextView
+        android:id="@+id/textViewTodayPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/nodata"
+        app:layout_constraintEnd_toEndOf="@+id/textViewToday"
+        app:layout_constraintStart_toStartOf="@+id/textViewToday"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTodayNight" />
+
+    <TextView
         android:id="@+id/textViewTomorrowDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,6 +164,30 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTomorrow" />
 
     <TextView
+        android:id="@+id/textViewTomorrowPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/nodata"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTomorrow"
+        app:layout_constraintStart_toStartOf="@+id/textViewTomorrow"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTomorrowNight" />
+
+    <TextView
+        android:id="@+id/textViewTomorrowHumidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/nodata"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTomorrow"
+        app:layout_constraintStart_toStartOf="@+id/textViewTomorrow"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTomorrowPressure" />
+
+    <TextView
         android:id="@+id/textViewTomorrowNight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -121,5 +198,29 @@
         app:layout_constraintEnd_toEndOf="@+id/textViewTomorrow"
         app:layout_constraintStart_toStartOf="@+id/textViewTomorrow"
         app:layout_constraintTop_toBottomOf="@+id/textViewTomorrowDay" />
+
+    <ImageView
+        android:id="@+id/imageViewOvercastToday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTodayHumidity"
+        app:layout_constraintStart_toStartOf="@+id/textViewTodayHumidity"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTodayHumidity"
+        app:srcCompat="@drawable/halfsun32" />
+
+    <ImageView
+        android:id="@+id/imageViewOvercastTomorrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTomorrowHumidity"
+        app:layout_constraintStart_toStartOf="@+id/textViewTomorrowHumidity"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTomorrowHumidity"
+        app:srcCompat="@drawable/sun32" />
 
 </android.support.constraint.ConstraintLayout>
