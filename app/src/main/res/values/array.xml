@@ -40,4 +40,10 @@
         <item>79</item>
     </integer-array>
 
+    <integer-array name="overcast_pics_array">
+        <item>@drawable/sun32</item>
+        <item>@drawable/halfsun32</item>
+        <item>@drawable/storm32</item>
+    </integer-array>
+
 </resources>
