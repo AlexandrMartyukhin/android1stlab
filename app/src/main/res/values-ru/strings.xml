@@ -3,7 +3,7 @@
     <string name="app_header">Погода</string>
     <string name="input_town">Введите название вашего города</string>
     <string name="app_header_in_town">Город не выбран</string>
-    <string name="app_header_in_town_X">Погода в городе</string>
+    <string name="app_header_in_town_X">Погода в городе %s</string>
     <string name="day">Днём</string>
     <string name="night">Ночью</string>
     <string name="today">Сегодня</string>

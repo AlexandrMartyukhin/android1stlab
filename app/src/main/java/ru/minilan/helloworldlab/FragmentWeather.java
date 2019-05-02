@@ -2,6 +2,7 @@ package ru.minilan.helloworldlab;
 
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,9 +11,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class FragmentWeather extends Fragment {
+
+    TextView textViewTodayDay, textViewTodayNight, textViewTomorrowDay, textViewTomorrowNight,
+            textViewTodayPressure, textViewTomorrowPressure, textViewTodayHumidity, textViewTomorrowHumidity;
+    View rootView;
 
     public static FragmentWeather create(int index) {
         FragmentWeather fragmentWeather = new FragmentWeather();
@@ -43,41 +51,9 @@ public class FragmentWeather extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
+        rootView = inflater.inflate(R.layout.fragment_weather, container, false);
 
-        //get arrays
-        int[] temps = getResources().getIntArray(R.array.temperature_array);
-        int[] presssures = getResources().getIntArray(R.array.pressure_array);
-        int[] hums = getResources().getIntArray(R.array.humidity_array);
-        String[] cities = getResources().getStringArray(R.array.Cities);
-
-        int temp = temps[getIndex()];
-        int pressure = presssures[getIndex()];
-        int hum = hums[getIndex()];
-
-        TextView textViewHeaderTown = rootView.findViewById(R.id.textviewheadertown);
-        TextView textViewTodayDay = rootView.findViewById(R.id.textViewTodayDay);
-        TextView textViewTodayNight = rootView.findViewById(R.id.textViewTodayNight);
-        TextView textViewTomorrowDay = rootView.findViewById(R.id.textViewTomorrowDay);
-        TextView textViewTomorrowNight = rootView.findViewById(R.id.textViewTomorrowNight);
-
-        TextView textViewTodayPressure = rootView.findViewById(R.id.textViewTodayPressure);
-        TextView textViewTomorrowPressure = rootView.findViewById(R.id.textViewTomorrowPressure);
-        TextView textViewTodayHumidity = rootView.findViewById(R.id.textViewTodayHumidity);
-        TextView textViewTomorrowHumidity = rootView.findViewById(R.id.textViewTomorrowHumidity);
-
-        String header = getResources().getText(R.string.app_header_in_town_X) + " " + cities[getIndex()];
-        textViewHeaderTown.setText(header);
-
-        //stabs
-        textViewTodayDay.setText(String.valueOf(temp));
-        textViewTodayNight.setText(String.valueOf(temp));
-        textViewTomorrowDay.setText(String.valueOf(temp));
-        textViewTomorrowNight.setText(String.valueOf(temp));
-        textViewTodayPressure.setText(String.valueOf(pressure));
-        textViewTomorrowPressure.setText(String.valueOf(pressure));
-        textViewTodayHumidity.setText(String.valueOf(hum));
-        textViewTomorrowHumidity.setText(String.valueOf(hum));
+        getDataDetails(getIndex());
 
         Log.i(MainActivity.LOGTAG, "FragmentWeather onCreateView()...");
         return rootView;
@@ -151,6 +127,49 @@ public class FragmentWeather extends Fragment {
     }
 
     private void getDataDetails(int index) {
+
+        //get arrays
+        int[] temps = getResources().getIntArray(R.array.temperature_array);
+        int[] pressures = getResources().getIntArray(R.array.pressure_array);
+        int[] hums = getResources().getIntArray(R.array.humidity_array);
+        String[] cities = getResources().getStringArray(R.array.Cities);
+        TypedArray overcastPics = getResources().obtainTypedArray(R.array.overcast_pics_array);
+
+        int temp = temps[index];
+        int pressure = pressures[index];
+        int hum = hums[index];
+
+        Random random = new Random();
+        int random_index = random.nextInt(3);
+
+        String header;
+        //header = getResources().getText(R.string.app_header_in_town_X) + " " + cities[index];
+        header = getString(R.string.app_header_in_town_X, cities[index]);
+
+        textViewTodayDay = rootView.findViewById(R.id.textViewTodayDay);
+        textViewTodayNight = rootView.findViewById(R.id.textViewTodayNight);
+        textViewTomorrowDay = rootView.findViewById(R.id.textViewTomorrowDay);
+        textViewTomorrowNight = rootView.findViewById(R.id.textViewTomorrowNight);
+        textViewTodayPressure = rootView.findViewById(R.id.textViewTodayPressure);
+        textViewTomorrowPressure = rootView.findViewById(R.id.textViewTomorrowPressure);
+        textViewTodayHumidity = rootView.findViewById(R.id.textViewTodayHumidity);
+        textViewTomorrowHumidity = rootView.findViewById(R.id.textViewTomorrowHumidity);
+
+        //stabs
+        ((TextView) rootView.findViewById(R.id.textviewheadertown)).setText(header);
+        textViewTodayDay.setText(String.valueOf(temp));
+        textViewTodayNight.setText(String.valueOf(temp - 2));
+        textViewTomorrowDay.setText(String.valueOf(temp + 2));
+        textViewTomorrowNight.setText(String.valueOf(temp));
+        textViewTodayPressure.setText(String.valueOf(pressures[random_index]));
+        textViewTomorrowPressure.setText(String.valueOf(pressure));
+        textViewTodayHumidity.setText(hum + "%");
+        textViewTomorrowHumidity.setText(hum + "%");
+        ImageView imageViewTodayOvercast = rootView.findViewById(R.id.imageViewOvercastToday);
+        ImageView imageViewOvercastTomorrow = rootView.findViewById(R.id.imageViewOvercastTomorrow);
+
+        imageViewTodayOvercast.setImageResource(R.drawable.halfsun32);
+        imageViewOvercastTomorrow.setImageResource(overcastPics.getResourceId(random_index, 0));
 
     }
 }
