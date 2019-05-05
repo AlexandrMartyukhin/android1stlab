@@ -30,6 +30,14 @@ public class SecondActivity extends AppCompatActivity {
         Log.i(MainActivity.LOGTAG, "SECOND - onCreate()...");
     }
 
+
+
+
+
+
+
+
+
     @Override
     protected void onStart() {
         super.onStart();
