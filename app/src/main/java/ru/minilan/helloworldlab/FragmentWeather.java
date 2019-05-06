@@ -7,13 +7,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
 import java.util.Random;
 
 public class FragmentWeather extends Fragment {
@@ -43,20 +48,71 @@ public class FragmentWeather extends Fragment {
 
 
     @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.fragment_resview_weather, container, false);
+
+        // set Town in header textview
+        setTown(getTown(getIndex()));
+
+        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        DataSourceBuilder dataSourceBuilder = new DataSourceBuilder(getResources());
+        final List<WeatherCard> dataSource = dataSourceBuilder.build();
+
+        final RVAdapter rvAdapter = new RVAdapter(dataSource);
+        recyclerView.setAdapter(rvAdapter);
+
+        //
+        Button buttonMore = rootView.findViewById(R.id.buttonAddMoreDays);
+        buttonMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataSource.add(new WeatherCard("10", "15", "12", "12", "757mm", "70%","27 april 2019"));
+                dataSource.add(new WeatherCard("10", "15", "12", "12", "757mm", "70%","28 april 2019"));
+
+                rvAdapter.notifyDataSetChanged();
+            }
+        });
+        Log.i(MainActivity.LOGTAG, "FragmentWeather onCreateView()...");
+        return rootView;
+    }
+
+
+    @NonNull
+    private String getTown(int index) {
+        String[] cities = getResources().getStringArray(R.array.Cities);
+        return getString(R.string.app_header_in_town_X, cities[index]);
+    }
+
+    private void setTown(String town) {
+        ((TextView) rootView.findViewById(R.id.textviewheadertown)).setText(town);
+    }
+
+
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(MainActivity.LOGTAG, "FragmentWeather onCreate()...");
-    }
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_weather, container, false);
-
-        getDataDetails(getIndex());
-
-        Log.i(MainActivity.LOGTAG, "FragmentWeather onCreateView()...");
-        return rootView;
     }
 
     @Override
@@ -143,7 +199,6 @@ public class FragmentWeather extends Fragment {
         int random_index = random.nextInt(3);
 
         String header;
-        //header = getResources().getText(R.string.app_header_in_town_X) + " " + cities[index];
         header = getString(R.string.app_header_in_town_X, cities[index]);
 
         textViewTodayDay = rootView.findViewById(R.id.textViewTodayDay);
@@ -172,4 +227,5 @@ public class FragmentWeather extends Fragment {
         imageViewOvercastTomorrow.setImageResource(overcastPics.getResourceId(random_index, 0));
 
     }
+
 }

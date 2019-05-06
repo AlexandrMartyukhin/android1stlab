@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:grid="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="@dimen/card_elevation"
+        card_view:cardCornerRadius="@dimen/card_album_radius">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewCardDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#589CF0"
+                android:text="@string/date"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:columnCount="5">
+
+                <TextView
+                    android:id="@+id/textViewCardMorning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="@string/morning"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="@string/day"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardEvening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="@string/evening"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardNight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="4"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="@string/night"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardTemper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="@string/t_deg"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardMorningTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="7"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardDayTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="12"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardEveningTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="10"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardNightTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="6"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardPressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="@string/pressure"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardPressureData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="755 mm rt st"
+                    android:textAlignment="center" />
+
+
+                <TextView
+                    android:id="@+id/textViewCardHumidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="@string/humidity"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/textViewCardHumidityData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:text="50%"
+                    android:textAlignment="center" />
+
+
+                <TextView
+                    android:id="@+id/textViewCardOvercast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:text="@string/overcast"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/imageViewCardOvercastMorning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:src="@drawable/halfsun32"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/imageViewCardOvercastDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:src="@drawable/sun32"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/imageViewCardOvercastEvening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:src="@drawable/sun32"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/imageViewCardOvercastNight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:src="@drawable/halfsun32"
+                    android:textAlignment="center" />
+
+            </GridLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

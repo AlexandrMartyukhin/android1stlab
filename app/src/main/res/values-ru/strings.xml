@@ -20,6 +20,11 @@
     <string name="show_def_town">Город не выбран. Отображена погода для Москвы</string>
     <string name="empty">Список пуст</string>
     <string name="overcast">Облачность</string>
+    <string name="more">Еще...</string>
+    <string name="date">Дата</string>
+    <string name="evening">Вечер</string>
+    <string name="morning">Утро</string>
+    <string name="t_deg">t гр.</string>
 
 
 </resources>

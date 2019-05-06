@@ -21,6 +21,11 @@
     <string name="overcast">Overcast</string>
 
     <string name="empty">Empty List</string>
+    <string name="more">More...</string>
+    <string name="date">Date</string>
+    <string name="morning">Morning</string>
+    <string name="evening">Evening</string>
+    <string name="t_deg">t deg.</string>
 
 
     <string-array name="Cities">
