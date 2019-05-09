@@ -4,9 +4,11 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="colorPrimaryW">#7FADF8</color>
+    <color name="colorPrimaryW">#B8D2FF</color>
     <color name="colorPrimaryN">#B2CEFF</color>
 
+    <color name="colorDate">#589CF0</color>
+    <color name="colorFAB">#1266F5</color>
     <color name="colorPrimaryW2">#F7F8FD</color>
     <color name="colorPrimaryW3">#8174FA</color>
     <color name="colorPrimaryW1">#FD6A9FEC</color>
@@ -16,4 +18,5 @@
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorMainText">#000000</color>
     <color name="colorLine">#777777</color>
+    <color name="colorBackgroundGray">#CFCFCF</color>
 </resources>

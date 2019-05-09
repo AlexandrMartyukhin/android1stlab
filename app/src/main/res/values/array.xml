@@ -46,4 +46,17 @@
         <item>@drawable/storm32</item>
     </integer-array>
 
+    <array name="cities_pics">
+        <item>@drawable/msk</item>
+        <item>@drawable/spb</item>
+        <item>@drawable/ekt</item>
+        <item>@drawable/nvsb</item>
+        <item>@drawable/sam</item>
+        <item>@drawable/tul</item>
+        <item>@drawable/erv</item>
+        <item>@drawable/rost</item>
+        <item>@drawable/tum</item>
+        <item>@drawable/abk</item>
+    </array>
+
 </resources>

@@ -10,21 +10,23 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/card_margin"
-        android:elevation="@dimen/card_elevation"
-        card_view:cardCornerRadius="@dimen/card_album_radius">
+        android:layout_marginLeft="@dimen/card_margin_left_right"
+        android:layout_marginTop="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin_left_right"
+        android:layout_marginBottom="@dimen/card_margin"
+        card_view:cardCornerRadius="@dimen/card_album_radius"
+        card_view:cardElevation="@dimen/card_elevation">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/card_background"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textViewCardDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#589CF0"
+                android:background="@color/colorLine"
                 android:text="@string/date"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -34,7 +36,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:columnCount="5">
+                android:columnCount="5"
+                android:minHeight="@dimen/cardItemMinHeight">
 
                 <TextView
                     android:id="@+id/textViewCardMorning"
@@ -43,8 +46,10 @@
                     android:layout_column="1"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="bottom|center"
                     android:text="@string/morning"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textViewCardDay"
@@ -53,8 +58,10 @@
                     android:layout_column="2"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="bottom|center"
                     android:text="@string/day"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textViewCardEvening"
@@ -63,8 +70,10 @@
                     android:layout_column="3"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="bottom|center"
                     android:text="@string/evening"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textViewCardNight"
@@ -73,8 +82,10 @@
                     android:layout_column="4"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="bottom|center"
                     android:text="@string/night"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/textViewCardTemper"
@@ -82,8 +93,11 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="@string/t_deg"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/textViewCardMorningTemp"
@@ -91,8 +105,11 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="7"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewCardDayTemp"
@@ -100,8 +117,11 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="12"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewCardEveningTemp"
@@ -109,8 +129,11 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="10"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewCardNightTemp"
@@ -118,8 +141,11 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="6"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewCardPressure"
@@ -128,8 +154,11 @@
                     android:layout_column="0"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="@string/pressure"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/textViewCardPressureData"
@@ -138,8 +167,11 @@
                     android:layout_columnSpan="2"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="755 mm rt st"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
 
                 <TextView
@@ -149,8 +181,11 @@
                     android:layout_column="0"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="@string/humidity"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/textViewCardHumidityData"
@@ -158,8 +193,11 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="50%"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
 
                 <TextView
@@ -170,8 +208,10 @@
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
                     android:gravity="center"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:text="@string/overcast"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:id="@+id/imageViewCardOvercastMorning"
@@ -179,6 +219,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:src="@drawable/halfsun32"
                     android:textAlignment="center" />
 
@@ -188,6 +229,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:src="@drawable/sun32"
                     android:textAlignment="center" />
 
@@ -197,6 +239,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:src="@drawable/sun32"
                     android:textAlignment="center" />
 
@@ -206,6 +249,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
+                    android:minHeight="@dimen/cardItemMinHeight"
                     android:src="@drawable/halfsun32"
                     android:textAlignment="center" />
 

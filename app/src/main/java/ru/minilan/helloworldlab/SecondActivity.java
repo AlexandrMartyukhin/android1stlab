@@ -12,6 +12,7 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE) {
             finish();
             return;
@@ -19,7 +20,7 @@ public class SecondActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             Log.i(MainActivity.LOGTAG, "SECOND - savedState == null");
-            Log.i(MainActivity.LOGTAG, String.valueOf(getIntent().getExtras().getInt("index")));
+            Log.i(MainActivity.LOGTAG, String.valueOf(getIntent().getExtras().getInt("city")));
 
             FragmentWeather details = new FragmentWeather();
             details.setArguments(getIntent().getExtras());
@@ -29,13 +30,6 @@ public class SecondActivity extends AppCompatActivity {
 
         Log.i(MainActivity.LOGTAG, "SECOND - onCreate()...");
     }
-
-
-
-
-
-
-
 
 
     @Override

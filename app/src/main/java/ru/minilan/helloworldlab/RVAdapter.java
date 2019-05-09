@@ -33,10 +33,18 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
         }
     }
 
+
+
+
     public RVAdapter(List<WeatherCard> dataSource) {
         this.dataSource = dataSource;
 
     }
+
+
+
+
+
 
     @NonNull
     @Override

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/weather_fragm_background">
+    android:background="@color/colorBackgroundGray">
 
 
     <TextView
@@ -18,17 +19,25 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/buttonAddMoreDays"
         android:layout_below="@id/textviewheadertown"
-        android:scrollbars="vertical" />
-
-    <Button
-        android:id="@+id/buttonAddMoreDays"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/more"
+        android:layout_marginBottom="0dp"
+        android:scrollbars="vertical">
 
-        />
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/recyclerView"
+        android:layout_alignBottom="@+id/recyclerView"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:clickable="true"
+        app:backgroundTint="@color/colorFAB"
+        app:srcCompat="@android:drawable/stat_notify_more" />
 
 </RelativeLayout>
