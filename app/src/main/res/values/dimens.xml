@@ -2,9 +2,11 @@
 <resources>
     <dimen name="cardItemMinWidth">0dp</dimen>
     <dimen name="cardItemFirstColMinWidth">90dp</dimen>
-    <dimen name="cardItemMinHeight">30dp</dimen>
-    <dimen name="card_margin">5dp</dimen>
-    <dimen name="card_elevation">3dp</dimen>
-    <dimen name="card_album_radius">25dp</dimen>
+    <dimen name="cardItemMinHeight">35dp</dimen>
+    <dimen name="card_margin">20dp</dimen>
+    <dimen name="card_margin_left_right">10dp</dimen>
+    <dimen name="fab_margin">5dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
+    <dimen name="card_album_radius">20dp</dimen>
 
 </resources>

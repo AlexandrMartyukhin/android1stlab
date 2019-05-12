@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Погодное приложение</string>
+    <string name="app_name">Погода</string>
     <string name="app_header">Погода</string>
     <string name="input_town">Введите название вашего города</string>
     <string name="app_header_in_town">Город не выбран</string>

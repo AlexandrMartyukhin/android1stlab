@@ -1,21 +1,47 @@
 package ru.minilan.helloworldlab;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.support.v7.widget.Toolbar;
 
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String LOGTAG = "MyLog";
-
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lfragment);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        //listView.setNestedScrollingEnabled(true);// enable scrolling listview in NestedView !!!
+
         Log.i(LOGTAG, "MAIN onCreate()...");
     }
+
+
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
 
     @Override
     protected void onStart() {

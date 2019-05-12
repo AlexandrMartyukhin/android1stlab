@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -55,7 +56,7 @@ public class FragmentWeather extends Fragment {
         // set Town in header textview
         setTown(getTown(getIndex()));
 
-        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
+        final RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -68,7 +69,7 @@ public class FragmentWeather extends Fragment {
         recyclerView.setAdapter(rvAdapter);
 
         //
-        Button buttonMore = rootView.findViewById(R.id.buttonAddMoreDays);
+        FloatingActionButton buttonMore = rootView.findViewById(R.id.floatingActionButton);
         buttonMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +77,7 @@ public class FragmentWeather extends Fragment {
                 dataSource.add(new WeatherCard("10", "15", "12", "12", "757mm", "70%","28 april 2019"));
 
                 rvAdapter.notifyDataSetChanged();
+                recyclerView.smoothScrollToPosition(rvAdapter.getItemCount()-1); // scroll recyclerView to the end
             }
         });
         Log.i(MainActivity.LOGTAG, "FragmentWeather onCreateView()...");
@@ -179,52 +181,6 @@ public class FragmentWeather extends Fragment {
     public void onDetach() {
         super.onDetach();
         Log.i(MainActivity.LOGTAG, "FragmentWeather onDetach()...");
-
-    }
-
-    private void getDataDetails(int index) {
-
-        //get arrays
-        int[] temps = getResources().getIntArray(R.array.temperature_array);
-        int[] pressures = getResources().getIntArray(R.array.pressure_array);
-        int[] hums = getResources().getIntArray(R.array.humidity_array);
-        String[] cities = getResources().getStringArray(R.array.Cities);
-        TypedArray overcastPics = getResources().obtainTypedArray(R.array.overcast_pics_array);
-
-        int temp = temps[index];
-        int pressure = pressures[index];
-        int hum = hums[index];
-
-        Random random = new Random();
-        int random_index = random.nextInt(3);
-
-        String header;
-        header = getString(R.string.app_header_in_town_X, cities[index]);
-
-        textViewTodayDay = rootView.findViewById(R.id.textViewTodayDay);
-        textViewTodayNight = rootView.findViewById(R.id.textViewTodayNight);
-        textViewTomorrowDay = rootView.findViewById(R.id.textViewTomorrowDay);
-        textViewTomorrowNight = rootView.findViewById(R.id.textViewTomorrowNight);
-        textViewTodayPressure = rootView.findViewById(R.id.textViewTodayPressure);
-        textViewTomorrowPressure = rootView.findViewById(R.id.textViewTomorrowPressure);
-        textViewTodayHumidity = rootView.findViewById(R.id.textViewTodayHumidity);
-        textViewTomorrowHumidity = rootView.findViewById(R.id.textViewTomorrowHumidity);
-
-        //stabs
-        ((TextView) rootView.findViewById(R.id.textviewheadertown)).setText(header);
-        textViewTodayDay.setText(String.valueOf(temp));
-        textViewTodayNight.setText(String.valueOf(temp - 2));
-        textViewTomorrowDay.setText(String.valueOf(temp + 2));
-        textViewTomorrowNight.setText(String.valueOf(temp));
-        textViewTodayPressure.setText(String.valueOf(pressures[random_index]));
-        textViewTomorrowPressure.setText(String.valueOf(pressure));
-        textViewTodayHumidity.setText(hum + "%");
-        textViewTomorrowHumidity.setText(hum + "%");
-        ImageView imageViewTodayOvercast = rootView.findViewById(R.id.imageViewOvercastToday);
-        ImageView imageViewOvercastTomorrow = rootView.findViewById(R.id.imageViewOvercastTomorrow);
-
-        imageViewTodayOvercast.setImageResource(R.drawable.halfsun32);
-        imageViewOvercastTomorrow.setImageResource(overcastPics.getResourceId(random_index, 0));
 
     }
 
